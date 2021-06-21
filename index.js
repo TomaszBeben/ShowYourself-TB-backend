@@ -23,7 +23,7 @@ app.get('/', (req, res)=>{
 const PORT = 5000
 
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(process.env.PORT || PORT, () => console.log(`Server is running`)))
+    .then(() => app.listen(process.env.PORT, () => console.log(`Server is running`)))
     .catch((error) => console.log(error.message))
 
 mongoose.set('useFindAndModify', false)
