@@ -20,10 +20,10 @@ app.get('/', (req, res)=>{
     res.send('welcome to my API')
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = 5000
 
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(PORT, () => console.log(`Server is running on port ${PORT}`)))
+    .then(() => app.listen(process.env.PORT || PORT, () => console.log(`Server is running on port ${PORT}`)))
     .catch((error) => console.log(error.message))
 
 mongoose.set('useFindAndModify', false)
