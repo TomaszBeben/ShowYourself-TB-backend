@@ -23,7 +23,7 @@ app.use('/posts', postRoutes)
 const PORT = process.env.PORT || 5000
 
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(PORT,'0.0.0.0'))
+    .then(() => app.listen(PORT, () => console.log(`Server is running`)))
     .catch((error) => console.log(error.message))
 
 mongoose.set('useFindAndModify', false)
