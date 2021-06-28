@@ -1,15 +1,51 @@
 import mongoose from 'mongoose'
 import PostMessage from '../dbModels/postMessage.js'
 
+// export const getPost = async (req, res) => {
+
+//     try {
+//         const postMessage = await PostMessage.find()
+//         res.status(200).json(postMessage)
+//     } catch (error) {
+//         res.status(404).json({ message: error })
+//     }
+// }//working !!!!!!!!!!
+
 export const getPost = async (req, res) => {
 
     try {
-        const postMessage = await PostMessage.find()
+        const  currentUser  = req.url.substring(1)
+        const postMessage = await PostMessage.find({"currentUser":`${currentUser}`})
+
         res.status(200).json(postMessage)
     } catch (error) {
         res.status(404).json({ message: error })
     }
 }
+
+
+// export const getPost = async (req, res) => {
+//     const currentUser = req.url //current mail
+//     try {
+//         const postMessage = await PostMessage.findById(currentUser)
+//         res.status(200).json(postMessage)
+//     } catch (error) {
+//         res.status(404).json({ message: error })
+//     }
+// }
+// export const getUserPost = async (req, res) => { 
+//     const { id } = req.params;
+//     console.log(id);
+
+//     try {
+//         const post = await PostMessage.findById(id);
+        
+//         res.status(200).json(post);
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
+// }
+//not working
 
 export const createPost = async (req, res) => {
 
@@ -32,7 +68,6 @@ export const updatePost = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('no post with that id')
 
     const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, { new: true })
-
     res.json(updatedPost)
 }
 
