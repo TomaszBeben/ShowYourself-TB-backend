@@ -22,7 +22,6 @@ const postShema = mongoose.Schema({
     phone: Number,
     email: String,
     zipCode: String
-
 })
 
 
