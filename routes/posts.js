@@ -5,12 +5,12 @@ const router = express.Router()
 
 // router.get('/', getPost)
 // router.post('/', createPost)
-//work
+//get all posts
 
-// router.get('/', getPost)
+
 router.get('/:currentUser', getPost)
 router.post('/:currentUser', createPost)
-//not yet
+//get only user posts
 
 router.patch('/:id', updatePost)
 router.delete('/:id', deletePost)

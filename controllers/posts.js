@@ -13,8 +13,11 @@ import PostMessage from '../dbModels/postMessage.js'
 
 export const getPost = async (req, res) => {
 
+    console.log(req.headers.host);
+
     try {
-        const  currentUser  = req.url.substring(1)
+
+        const currentUser  = req.url.substring(1)
         const postMessage = await PostMessage.find({"currentUser":`${currentUser}`})
 
         res.status(200).json(postMessage)
@@ -52,8 +55,8 @@ export const createPost = async (req, res) => {
     const post = req.body // current post object
 
     const newPost = new PostMessage(post)
-
     try {
+
         await newPost.save()
         res.status(200).json(newPost)
     } catch (error) {
