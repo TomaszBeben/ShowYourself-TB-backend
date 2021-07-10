@@ -17,6 +17,7 @@ const postShema = mongoose.Schema({
     file: String,
     name: String,
     surname: String,
+    dateOfBirth: String,
     country: String,
     city: String,
     phone: Number,
