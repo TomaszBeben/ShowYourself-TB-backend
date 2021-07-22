@@ -24,7 +24,6 @@ const postShema = mongoose.Schema({
     phone: String,
     email: String,
     zipCode: String,
-    test: String,
     education: {
         first: {
             degree: String,
@@ -50,7 +49,8 @@ const postShema = mongoose.Schema({
             end: String,
             description: String
         }
-    }
+    },
+    skills: []
 })
 const PostMessage = mongoose.model('PostMessage', postShema)
 export default PostMessage
