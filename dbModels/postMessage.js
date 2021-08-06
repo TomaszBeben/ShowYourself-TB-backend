@@ -50,6 +50,32 @@ const postShema = mongoose.Schema({
             description: String
         }
     },
+    experience:{
+        first:{
+            position: String,
+            company: String,
+            location: String,
+            start: String,
+            end: String,
+            description: String,
+        },
+        second:{
+            position: String,
+            company: String,
+            location: String,
+            start: String,
+            end: String,
+            description: String,
+        },
+        third:{
+            position: String,
+            company: String,
+            location: String,
+            start: String,
+            end: String,
+            description: String,
+        },
+    },
     skills: []
 })
 const PostMessage = mongoose.model('PostMessage', postShema)
