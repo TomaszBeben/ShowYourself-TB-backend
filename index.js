@@ -22,11 +22,11 @@ app.use('/posts', postRoutes)
 
 const PORT = process.env.PORT || 5000
 
-mongoose.connect(DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(PORT, () => console.log(`Server is running on port: ${PORT} `)))
-    .catch((error) => console.log(error.message))
-// mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
+// mongoose.connect(DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
 //     .then(() => app.listen(PORT, () => console.log(`Server is running on port: ${PORT} `)))
 //     .catch((error) => console.log(error.message))
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => app.listen(PORT, () => console.log(`Server is running on port: ${PORT} `)))
+    .catch((error) => console.log(error.message))
 
 mongoose.set('useFindAndModify', false)
